@@ -16,7 +16,7 @@ class HelloController {
         return __awaiter(this, void 0, void 0, function* () {
             (0, logger_1.LogSuccess)('[/api/hello] Get Request');
             return {
-                message: `Hello ${name} || "World"`,
+                message: `Hello ${name || "World"} `,
             };
         });
     }

@@ -27,6 +27,10 @@ server.use(
     rootRouter
     );
 
+// Static Server
+server.use(express.static('public'))
+
+
 // TODO Mongoose Connection
 
 // * Security Connection
