@@ -15,6 +15,8 @@ const server = (0, express_1.default)();
 // Define SERVER to use "/api" and use rootRouter from 'index.ts' in routes
 // From this point onover: http://logalhost:8000/api/...
 server.use('/api', routes_1.default);
+// Static Server
+server.use(express_1.default.static('public'));
 // TODO Mongoose Connection
 // * Security Connection
 server.use((0, helmet_1.default)());
