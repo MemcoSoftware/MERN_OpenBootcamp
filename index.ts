@@ -1,36 +1,22 @@
-import express, { Express, Request, Response } from "express";
 import dotenv from 'dotenv';
+import server from './src/server';
+import { LogError, LogSuccess } from './src/utils/logger';
 
 
-// env. file configuration
-
+// * Dotenv config
 dotenv.config();
 
 
-// Create Express APP
+const port = process.env.PORT || 8000;
 
-const app: Express = express();
-const port: string | number = process.env.PORT || 8000;
+// * Execute SERVER
 
-//Define the first APP Route
-
-app.get('/', (req: Request, res: Response) => {
-    // Send Hello World
-    res.send('Welcome to API Restful Express + Nodemon + Jest + TS + React + Swagger + Mongoose');
+server.listen(port, () =>{
+    LogSuccess(`[SERVER ON]: Running in http://localhost:${port}/api`)
 });
 
+// * Control SERVER ERROR
 
-app.get('/hello', (req: Request, res: Response) => {
-    // Send Hello World
-    res.send('Welcome to GET Route: Hello');
-});
-
-
-
-// Execute APP and Listen Request to PORT 
-
-app.listen(port, ()=> {
-    console.log(`EXPRESS SERVER: Running at http://localhost:${port}`)
-});
-
-
+server.on('error', (error)=>{
+    LogError(`[SERVER ERROR]: ${error}`)
+})
