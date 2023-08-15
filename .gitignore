@@ -97,5 +97,8 @@ $RECYCLE.BIN/
 #Node_Modules
 
 node_modules
+./cache
+coverage
+*.lcov
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,linux,macos
